@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/SuperJamey/smart-brain-backend/issues"
   },
-  "homepage": "https://github.com/SuperJamey/smart-brain-backend#readme",
+  "homepage": "https://github.com/SuperJamey/smart-brain-backend.git",
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",
     "cors": "^2.8.5",
