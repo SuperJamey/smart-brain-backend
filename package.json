@@ -5,11 +5,7 @@
   "main": "server.js",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "start": "nodemon server.js",
-    "build": "nodemon build",
-    "test": "nodemon test",
-    "eject": "nodemon eject"
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
