@@ -1,22 +1,7 @@
 {
   "name": "smart-brain-api",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/SuperJamey/smart-brain-backend.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/SuperJamey/smart-brain-backend/issues"
-  },
-  "homepage": "https://github.com/SuperJamey/smart-brain-backend.git",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",
     "cors": "^2.8.5",
@@ -25,7 +10,31 @@
     "nodemon": "^2.0.21",
     "pg": "^8.10.0"
   },
-  "devDependencies": {
-    "gh-pages": "^5.0.0"
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build"
+  },
+  "homepage": "https://github.com/SuperJamey/smart-brain-frontend.git",
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
