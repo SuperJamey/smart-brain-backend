@@ -1,5 +1,7 @@
 const handleRegister = (req, res, db, bcrypt) => {
+  console.log('in handleRegister');
   console.log(req);
+  console.log(res);
   const { email, name, password } = req.body;
   if (!email || !name || !password) {
     return res.status(400).json('incorrect form submission');
@@ -27,7 +29,7 @@ const handleRegister = (req, res, db, bcrypt) => {
     .then(trx.commit)
     .catch(trx.rollback)
     })  
-    .catch(err => res.status(400).json('unable to resister'))
+    .catch(Error => res.status(400).json('unable to resister'))
 }
 
 module.exports = {
