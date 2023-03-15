@@ -9,11 +9,12 @@ const handleRegister = (req, res, db, bcrypt) => {
     console.log('email: ', email);
     console.log('name: ', name);
     db.transaction(trx => {
-      trx.insert({
+      db.insert({
         hash: hash,
         email: email
       })
       .into('login')
+      .transacting(trx)
       .returning('email')
       .then(loginEmail => {
         return trx('users')
@@ -30,7 +31,7 @@ const handleRegister = (req, res, db, bcrypt) => {
     .then(trx.commit)
     .catch(trx.rollback)
     })  
-    .catch(Error => res.status(400).json('unable to resister'))
+    .catch(error => res.status(400).json('unable to resister'))
 }
 
 module.exports = {
