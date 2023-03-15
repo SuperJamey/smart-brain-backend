@@ -11,7 +11,6 @@ const handleRegister = (req, res, db, bcrypt) => {
         hash: hash,
         email: email
       })
-      console.log('trx-insert', trx.insert)
       .into('login')
       .returning('email')
       .then(loginEmail => {
