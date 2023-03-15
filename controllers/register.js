@@ -8,7 +8,7 @@ const handleRegister = (req, res, db, bcrypt) => {
     console.log('hash: ', hash);
     console.log('email: ', email);
     console.log('name: ', name);
-    db.transaction(trx => {
+    db.transaction(function(trx) {
       db.insert({
         hash: hash,
         email: email
@@ -31,7 +31,7 @@ const handleRegister = (req, res, db, bcrypt) => {
     .then(trx.commit)
     .catch(trx.rollback)
     })  
-    .catch(error => res.status(400).json('unable to resister'))
+    .catch(error => res.status(400).json('you suck'))
 }
 
 module.exports = {
