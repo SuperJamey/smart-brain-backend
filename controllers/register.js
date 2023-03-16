@@ -8,7 +8,7 @@ const handleRegister = (req, res, db, bcrypt) => {
     console.log('hash: ', hash);
     console.log('email: ', email);
     console.log('name: ', name);
-    db.transaction(function(trx) {
+    db.transaction(trx => {
       db.insert({
         hash: hash,
         email: email
