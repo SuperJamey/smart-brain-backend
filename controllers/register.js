@@ -30,8 +30,8 @@ const handleRegister = (req, res, db, bcrypt) => {
       })
     .then(trx.commit)
     .catch(trx.rollback)
-    })
+    })}
 
 module.exports = {
   handleRegister: handleRegister
-};
+}
