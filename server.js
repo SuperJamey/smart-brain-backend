@@ -11,19 +11,21 @@ const image = require('./controllers/image');
 let db = knex({
   client: 'pg',
   connection: {
-    host : 'postgres://jamey:r1RvN6NiG89sFc1sRATaDBTN6npDld1a@dpg-cg8a3hpmbg53mc4s9kjg-a/smartbraindb_ju116',
+    host : 'postgres://jamey:r1RvN6NiG89sFc1sRATaDBTN6npDld1a@dpg-cg8a3hpmbg53mc4s9kjg-a/smartbraindb_ju12',
     user : 'jamey',
     password : 'r1RvN6NiG89sFc1sRATaDBTN6npDld1a',
-    database : 'martBrainPSQL'
+    database : 'smartBrainPSQL'
   }
 });
 
 const app = express();
 
+console.log(db.schema.hasTable('users'));
+
 app.use(express.json());
 app.use(cors());
 
-app.get('/', (req, res) => { res.send('Changed db to the name I gave it in code here.') })
+app.get('/', (req, res) => { res.send('testing authentication') })
 app.post('/signin', (req, res) => { signin.handleSignin(req, res, db, bcrypt) })
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) })
 app.get('/profile/:id', (req, res) => { profile.handleProfileGet(req, res, db) })
