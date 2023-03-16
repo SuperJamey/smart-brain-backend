@@ -14,7 +14,7 @@ let db = knex({
     host : 'postgres://jamey:r1RvN6NiG89sFc1sRATaDBTN6npDld1a@dpg-cg8a3hpmbg53mc4s9kjg-a/smartbraindb_ju12',
     user : 'jamey',
     password : 'r1RvN6NiG89sFc1sRATaDBTN6npDld1a',
-    database : 'smartBrainPSQL'
+    database : 'martBrainPSQL'
   }
 });
 
