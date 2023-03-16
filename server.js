@@ -20,7 +20,7 @@ let db = knex({
 
 const app = express();
 
-console.log(db.schema.hasTable('users'));
+console.log('yay or nay', db.schema.hasTable('users'));
 
 app.use(express.json());
 app.use(cors());
