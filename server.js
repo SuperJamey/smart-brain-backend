@@ -23,7 +23,7 @@ if (db.schema.hasTable('login')) {
   console.log('YEEEESSSSSSSS')
 } else {
   console.log('noooooooooooooo')
-}
+};
 
 const app = express();
 
