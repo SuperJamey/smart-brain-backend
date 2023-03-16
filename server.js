@@ -17,9 +17,6 @@ let db = knex({
     database : 'smartBrainPSQL'
   },
   debug: true
-  .catch((error) => {
-    console.log('Johnny Five Malfuntion');
-  } )
 });
 
 if (db.schema.hasTable('login')) {
