@@ -19,10 +19,13 @@ let db = knex({
   debug: true
 });
 
+if (db.schema.hasTable('users')) {
+  console.log('YEEEESSSSSSSS')
+} else {
+  console.log('noooooooooooooo')
+}
+
 const app = express();
-yes = db.schema.hasTable('users');
-console.log('yay or nay', yes);
-{ console.log('no', yes) }
 
 app.use(express.json());
 app.use(cors());
