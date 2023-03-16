@@ -27,6 +27,7 @@ const handleRegister = (req, res, db, bcrypt) => {
           .then(user => {
             res.json(user[0]);
           })
+          .catch(console.log)
       })
     .then(trx.commit)
     .catch(trx.rollback)
