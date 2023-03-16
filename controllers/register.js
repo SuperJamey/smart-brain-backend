@@ -15,10 +15,22 @@ const handleRegister = (req, res, db, bcrypt) => {
       })
       .into('login')
       .transacting(trx)
+      .returning('email')
+      .then(loginEmail => {
+        return trx('users')
+          .returning('*')
+          .insert({
+            email: loginEmail[0].email,
+            name: name,
+            joined: new Date()
+          })
+          .then(user => {
+            res.json(user[0]);
+          })
       })
     .then(trx.commit)
     .catch(trx.rollback)
-    }
+    })
 
 module.exports = {
   handleRegister: handleRegister
