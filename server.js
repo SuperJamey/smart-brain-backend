@@ -19,7 +19,7 @@ let db = knex({
   debug: true
 });
 
-if (db.schema.hasTable('blue')) {
+if (db.schema.hasTable('login')) {
   console.log('YEEEESSSSSSSS')
 } else {
   console.log('noooooooooooooo')
