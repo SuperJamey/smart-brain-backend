@@ -15,12 +15,14 @@ let db = knex({
     user : 'jamey',
     password : 'r1RvN6NiG89sFc1sRATaDBTN6npDld1a',
     database : 'smartBrainPSQL'
-  }
+  },
+  debug: true
 });
 
 const app = express();
-
-console.log('yay or nay', db.schema.hasTable('users'));
+yes = db.schema.hasTable('users');
+console.log('yay or nay', yes);
+{ console.log('no', yes) }
 
 app.use(express.json());
 app.use(cors());
