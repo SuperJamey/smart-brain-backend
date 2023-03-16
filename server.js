@@ -23,7 +23,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get('/', (req, res) => { res.send(db, 'Changed db to the name I gave it in code here.') })
+app.get('/', (req, res) => { res.send('Changed db to the name I gave it in code here.') })
 app.post('/signin', (req, res) => { signin.handleSignin(req, res, db, bcrypt) })
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) })
 app.get('/profile/:id', (req, res) => { profile.handleProfileGet(req, res, db) })
