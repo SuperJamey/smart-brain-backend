@@ -14,21 +14,24 @@ const handleRegister = (req, res, db, bcrypt) => {
           hash: hash,
           email: email
         })
+      
         .into('users')
-        .returning('email')
-        .then(loginEmail => {
-          return trx('users')
-            .returning('*')
-            .insert({
-              email: loginEmail[0].email,
-              name: name,
-              joined: new Date()
-            })
-            .then(user => {
-              res.json(user[0]);s
-            })
-            .catch(console.log)
-        })
+      
+        //.returning('email')
+      
+        // .then(loginEmail => {
+        //   return trx('users')
+        //     .returning('*')
+        //     .insert({
+        //       email: loginEmail[0].email,
+        //       name: name,
+        //       joined: new Date()
+        //     })
+        //     .then(user => {
+        //       res.json(user[0]);s
+        //     })
+        //     .catch(console.log)
+        // })
       .then(trx.commit)
       .catch(trx.rollback)
       })
