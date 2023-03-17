@@ -9,11 +9,12 @@ const handleRegister = (req, res, db, bcrypt) => {
     console.log('email: ', email);
     console.log('name: ', name);
       db.transaction(trx => {
-        trx.insert({
+        db('users').transacting(trx).insert({
+        //trx.insert({
           hash: hash,
           email: email
         })      
-        .into('users')      
+        //.into('users')      
         .returning('email')      
         .then(loginEmail => {
           return trx('users')
@@ -24,14 +25,14 @@ const handleRegister = (req, res, db, bcrypt) => {
               joined: new Date()
             })
             .then(user => {
-              res.json(user[0]);s
+              res.json(user[0])
             })
           .catch(console.log)
         })
         // .then(trx.commit)
         // .catch(trx.rollback)
         .catch(console.log)
-      });
+      })
   }
 
 module.exports = {
