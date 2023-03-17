@@ -17,7 +17,6 @@ let db = knex({
     database : 'smartBrainPSQL'
   },
   debug: true
-  .catch(console.log)
 });
 
 if (db.schema.hasTable('login')) {
