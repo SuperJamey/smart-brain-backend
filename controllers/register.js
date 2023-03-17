@@ -13,7 +13,7 @@ const handleRegister = (req, res, db, bcrypt) => {
         hash: hash,
         email: email
       })
-      .into('login')
+      .into('users')
       .returning('email')
       // .then(loginEmail => {
       //   return trx('users')
@@ -28,8 +28,8 @@ const handleRegister = (req, res, db, bcrypt) => {
       //     })
       //     .catch(console.log)
       // })
-    .then(trx.commit)
-    .catch(trx.rollback)
+    // .then(trx.commit)
+    // .catch(trx.rollback)
     })}
 
 module.exports = {
