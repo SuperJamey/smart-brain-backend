@@ -11,19 +11,20 @@ const image = require('./controllers/image');
 let db = knex({
   client: 'pg',
   connection: {
-    host : 'https://www.google.com/',
-    // user : 'jamey',
-    // password : 'r1RvN6NiG89sFc1sRATaDBTN6npDld1a',
-    // database : 'smartBrainPSQL'
-  },
-  debug: true
-});
+    host: 'dpg-cg8a3hpmbg53mc4s9kjg-a',
+    port: 5432,
+    database : 'smartbraindb_ju12',
+    user: 'jamey',
+    password: 'r1RvN6NiG89sFc1sRATaDBTN6npDld1a'
+    
+  }
+})
 
 if (db.schema.hasTable('login')) {
   console.log('YEEEESSSSSSSS')
 } else {
   console.log('noooooooooooooo')
-};
+}
 
 const app = express();
 
