@@ -8,7 +8,7 @@ const handleRegister = (req, res, db, bcrypt) => {
     console.log('hash: ', hash);
     console.log('email: ', email);
     console.log('name: ', name);
-      db.transaction(trx => {
+      db.transaction(function(trx) {
         db('users').transacting(trx).insert({
         //trx.insert({
           hash: hash,
@@ -16,23 +16,18 @@ const handleRegister = (req, res, db, bcrypt) => {
         })      
         //.into('users')      
         .returning('email')      
-        .then(loginEmail => {
-          return trx('users')
-            .returning('*')
-            .insert({
-              email: loginEmail[0].email,
-              name: name,
-              joined: new Date()
-            })
-            .then(user => {
-              res.json(user[0])
-            })
-          .catch(console.log)
+        .then(function(resp) {
+          return loginEmail[0].email;
         })
-        // .then(trx.commit)
-        // .catch(trx.rollback)
-        .catch(console.log)
+        .then(trx.commit)
+        .catch(trx.rollback);
       })
+    .then(function(resp) {
+      console.log('Transaction complete.');
+    })
+    .catch(function(err) {
+      console.error(err);
+    });
   }
 
 module.exports = {
