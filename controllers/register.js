@@ -10,11 +10,10 @@ const handleRegister = (req, res, db, bcrypt) => {
     console.log('name: ', name);
       db.transaction(function(trx) {
         db('users').transacting(trx).insert({
-        //trx.insert({
           hash: hash,
           email: email
         })      
-        //.into('users')      
+        .into('login')      
         .returning('email')      
         .then(function(resp) {
           return loginEmail[0].email;
